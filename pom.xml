@@ -24,8 +24,10 @@
     </contributor>
   </contributors>
   <properties>
-    <tycho-version>1.4.0</tycho-version>
-    <tycho-extras.version>1.4.0</tycho-extras.version>
+    <tycho-version>4.0.4</tycho-version>
+    <tycho-extras.version>2.7.5</tycho-extras.version>
+    <coveralls-maven-plugin.version>4.3.0</coveralls-maven-plugin.version>
+    <cobertura-maven-plugin.version>2.7</cobertura-maven-plugin.version>
     <!-- <eclipse-repo.url>http://download.eclipse.org/releases/juno/</eclipse-repo.url> -->
     <!-- <eclipse-repo.url>http://download.eclipse.org/releases/kepler/</eclipse-repo.url> -->
     <!-- <eclipse-repo.url>http://download.eclipse.org/releases/luna/</eclipse-repo.url> -->
@@ -33,7 +35,7 @@
     <!-- <eclipse-repo.url>http://download.eclipse.org/releases/neon/</eclipse-repo.url> -->
     <!-- <eclipse-repo.url>http://download.eclipse.org/releases/oxygen/</eclipse-repo.url> -->
     <!-- <eclipse-repo.url>http://download.eclipse.org/releases/photon/</eclipse-repo.url> -->
-    <eclipse-repo.url>http://download.eclipse.org/releases/2019-03/</eclipse-repo.url>
+    <eclipse-repo.url>http://download.eclipse.org/releases/2023-12/</eclipse-repo.url>
     <tycho-repo.url>https://oss.sonatype.org/content/groups/public/</tycho-repo.url>
     <orbit.url>http://download.eclipse.org/tools/orbit/downloads/drops/R20190226160451/repository</orbit.url>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -154,22 +156,7 @@
         <plugin>
           <groupId>org.eclipse.tycho</groupId>
           <artifactId>tycho-packaging-plugin</artifactId>
-          <version>${tycho-version}</version>
-          <dependencies>
-            <dependency>
-              <groupId>org.eclipse.tycho.extras</groupId>
-              <artifactId>tycho-buildtimestamp-jgit</artifactId>
-              <version>${tycho-extras.version}</version>
-            </dependency>
-          </dependencies>
-          <configuration>
-            <strictBinIncludes>false</strictBinIncludes>
-            <format>'v'yyyyMMdd-HHmm</format>
-            <timestampProvider>jgit</timestampProvider>
-            <jgit.dirtyWorkingTree>warning</jgit.dirtyWorkingTree>
-            <jgit.ignore>
-            </jgit.ignore>
-          </configuration>
+          <version>${tycho-version}</version>          
         </plugin>
         <plugin>
           <groupId>org.eclipse.tycho</groupId>
@@ -212,12 +199,12 @@
         <plugin>
           <groupId>org.eluder.coveralls</groupId>
           <artifactId>coveralls-maven-plugin</artifactId>
-          <version>2.2.0</version>
+          <version>${coveralls-maven-plugin.version}</version>
         </plugin>
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>cobertura-maven-plugin</artifactId>
-          <version>2.7</version>
+          <version>${cobertura-maven-plugin.version}</version>
           <configuration>
             <formats>
               <format>html</format>
